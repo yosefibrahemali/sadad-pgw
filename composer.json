@@ -1,0 +1,21 @@
+{
+  "name": "yosefib/sadad-pgw",
+  "description": "Laravel package for SADAD payment gateway integration",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "YosefIb\\SadadPGW\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^8.0",
+    "illuminate/support": "^10.0|^11.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "YosefIb\\SadadPGW\\SadadServiceProvider"
+      ]
+    }
+  }
+}
