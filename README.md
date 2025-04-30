@@ -69,11 +69,11 @@ use YosefIb\SadadPGW\Sadad;
 public function initiate(Sadad $sadad)
 {
     $response = $sadad->validateCustomer(
-        '0921234567',
-        1990,
-        'INV-1001',
-        75.00,
-        7
+        '0921234567',  // Customer phone number
+        '1990',        // Birth year as string
+        'INV-1001',    // Invoice number
+        75.00,         // Amount
+        7              // Service category (example: Food & Beverages)
     );
 
     return response()->json($response);
