@@ -251,3 +251,7 @@ Use one of the following:
 | معامل تحاليل                                | 32 |
 | الملابس التقليدية                          | 36 |
 
+
+## Security
+
+If you discover any security related issues, please email [gargumy1@gmail.com](mailto:gargumy1@gmail.com) instead of using the issue tracker.
