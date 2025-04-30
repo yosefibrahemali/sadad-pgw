@@ -114,6 +114,66 @@ public function initiate(Sadad $sadad)
 
 ---
 
+## 🏦 Complete Payment Flow (Full Transaction Steps)
+
+To complete a transaction using SADAD PGW:
+
+1. **Validate the Customer and Create Invoice**
+   - Call the `validateCustomer` method.
+   - This sends an OTP to the customer's phone.
+   - Also creates a pending transaction in SADAD.
+
+```php
+$response = $sadad->validateCustomer(
+    '0921234567', // Customer phone number
+    1990,         // Birth year
+    'INV-1001',   // Invoice number
+    75.00,        // Amount
+    7             // Service category (example: Food & Beverages)
+);
+```
+
+2. **Pay the Invoice with OTP**
+   - After the customer receives the OTP via SMS, use it to confirm payment.
+   - You need the `transactionId` returned from `validateCustomer`.
+
+```php
+$response = $sadad->payInvoice(
+    'TransactionId_From_ValidateCustomer',
+    'OTP_Code_From_SMS'
+);
+```
+
+3. **Resend OTP (if needed)**
+   - If the customer did not receive the OTP, you can request to resend it.
+
+```php
+$response = $sadad->resendOtp(
+    'TransactionId_From_ValidateCustomer'
+);
+```
+
+4. **Check Transaction Status (Optional)**
+   - To check if the transaction was successfully paid:
+
+```php
+$response = $sadad->transactionStatus(
+    'INV-1001' // Invoice number
+);
+```
+
+---
+
+### 📋 Example Flow
+
+- Step 1: `validateCustomer` ➔ OTP sent to user.
+- Step 2: User receives OTP ➔ enters it.
+- Step 3: `payInvoice` using OTP ➔ transaction completed.
+
+✅ Done!
+
+---
+
 ## 📄 License
 
 MIT © 2025 Yosef Ibrahem Ali
