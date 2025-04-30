@@ -177,3 +177,77 @@ $response = $sadad->transactionStatus(
 ## 📄 License
 
 MIT © 2025 Yosef Ibrahem Ali
+---
+
+## 🧾 Response Example for Completed Payment
+
+After calling `payInvoice`, a successful response may look like:
+
+```json
+{
+  "success": true,
+  "message": "تم الدفع بنجاح",
+  "status_code": 200,
+  "data": {
+    "result": "SD-20240430123456",
+    "transactionId": "TX987654321",
+    "merchantNo": "M-123456",
+    "commission": 1.25,
+    "total": 76.25
+  }
+}
+```
+
+On failure (e.g. invalid OTP):
+
+```json
+{
+  "success": false,
+  "message": "OTP غير صحيح",
+  "status_code": 400,
+  "data": {
+    "statusCode": 2,
+    "message": "OTP غير صحيح أو منتهي"
+  }
+}
+```
+
+---
+
+## 🗂️ Service Categories
+
+When creating an invoice via `validateCustomer`, you must pass a category ID.  
+Use one of the following:
+
+| Category Name (Arabic)                      | ID |
+|--------------------------------------------|----|
+| بدون تصنيف                                 | 0  |
+| مواد صحية                                  | 5  |
+| صيدليات                                    | 6  |
+| مواد غذائية                                | 7  |
+| مقاهي ومطاعم                               | 8  |
+| ملابس وأحذية                               | 9  |
+| قرطاسية                                    | 10 |
+| إلكترونيات                                 | 11 |
+| صيانة وقطع غيار                            | 12 |
+| خدمات سياحية                               | 13 |
+| مواد بناء                                  | 14 |
+| خدمات تعليمية                              | 15 |
+| خدمات دعائية                               | 16 |
+| مواد منزلية                                | 17 |
+| أثاث ومفروشات                              | 18 |
+| إطارات وونشات                              | 19 |
+| البيع الإلكتروني                           | 20 |
+| العطور ومواد منزلية                        | 21 |
+| المخابز والحلويات                          | 22 |
+| البصريات والعدسات                          | 23 |
+| ساعات ومجوهرات وإكسسوارات                 | 24 |
+| مستلزمات الأم والطفل                      | 25 |
+| ورش صيانة                                  | 26 |
+| مواد تنظيف                                 | 27 |
+| الألعاب                                    | 28 |
+| لحوم ودواجن                                 | 29 |
+| عيادات ومصحات                              | 30 |
+| معامل تحاليل                                | 32 |
+| الملابس التقليدية                          | 36 |
+
