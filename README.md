@@ -17,10 +17,10 @@ This package simplifies the process of validating users, creating invoices, hand
 
 ## 📦 Installation (Local Usage in Laravel)
 
-1. Move the package to your Laravel project:
+1. Install the package in your Laravel project:
 
 ```
-packages/yosefib/sadad-pgw
+composer require yosefib/sadad-pgw
 ```
 
 2. Edit your Laravel project’s `composer.json` and add:
